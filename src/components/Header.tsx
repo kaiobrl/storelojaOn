@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { useCart } from "@/contexts/CartContext";
+import { useCart } from "../contexts/CartContext";
 import { Badge } from "@/components/ui/badge";
 
 const Header = () => {

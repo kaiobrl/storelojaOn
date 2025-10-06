@@ -7,7 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
 import { ThemeProvider } from "./components/ThemeProvider";
-import { CartProvider } from "@/contexts/CartContext";
+import { CartProvider } from "./contexts/CartContext";
 
 const queryClient = new QueryClient();
 

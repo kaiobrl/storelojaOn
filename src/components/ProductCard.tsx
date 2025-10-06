@@ -2,7 +2,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 import type { Product } from "@/data/products";
-import { useCart } from "@/contexts/CartContext";
+import { useCart } from "../contexts/CartContext";
 import { showSuccess } from "@/utils/toast";
 
 interface ProductCardProps {

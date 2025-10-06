@@ -7,10 +7,10 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { useCart } from "@/contexts/CartContext";
+import { useCart } from "../contexts/CartContext";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Trash2, Plus, Minus } from "lucide-react";
-import type { CartItem } from "@/contexts/CartContext";
+import type { CartItem } from "../contexts/CartContext";
 
 const CartItemRow = ({ item }: { item: CartItem }) => {
   const { addToCart, decreaseQuantity, removeFromCart } = useCart();
