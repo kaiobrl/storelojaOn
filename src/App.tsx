@@ -15,7 +15,7 @@ function App() {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <CartProvider>
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true }}>
           <Layout>
             <Routes>
               <Route path="/" element={<Index />} />
