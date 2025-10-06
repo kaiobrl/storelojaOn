@@ -3,6 +3,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
 
 interface ProductImageModalProps {
@@ -18,6 +19,9 @@ const ProductImageModal = ({ isOpen, onClose, imageUrl, productName }: ProductIm
       <DialogContent className="sm:max-w-[600px]">
         <DialogHeader>
           <DialogTitle>{productName}</DialogTitle>
+          <DialogDescription className="sr-only">
+            Imagem ampliada de {productName}.
+          </DialogDescription>
         </DialogHeader>
         <div className="mt-4">
           <img src={imageUrl} alt={productName} className="w-full h-auto rounded-lg object-contain" />
