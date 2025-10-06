@@ -41,7 +41,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </div>
           <p className="text-xl font-bold mt-2">
             {product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-          p>
+          </p>
         </CardContent>
         <CardFooter className="p-4 pt-0">
           <Button className="w-full" onClick={handleAddToCart}>Adicionar ao Carrinho</Button>
