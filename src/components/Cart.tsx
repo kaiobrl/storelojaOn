@@ -46,7 +46,7 @@ export const Cart = () => {
   const { isCartOpen, closeCart, cartItems, totalPrice, cartCount } = useCart();
 
   const handleCheckout = () => {
-    const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "5511999999999"; 
+    const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "5583981374944"; 
 
     const messageItems = cartItems.map(item => 
       `• ${item.quantity}x ${item.name} - ${item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`
