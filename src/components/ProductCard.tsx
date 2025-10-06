@@ -2,12 +2,21 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 import type { Product } from "@/data/products";
+import { useCart } from "@/contexts/CartContext";
+import { showSuccess } from "@/utils/toast";
 
 interface ProductCardProps {
   product: Product;
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    showSuccess(`${product.name} adicionado ao carrinho!`);
+  };
+
   return (
     <Card className="w-full flex flex-col">
       <CardHeader className="p-0 relative">
@@ -29,7 +38,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </p>
       </CardContent>
       <CardFooter className="p-4 pt-0">
-        <Button className="w-full">Adicionar ao Carrinho</Button>
+        <Button className="w-full" onClick={handleAddToCart}>Adicionar ao Carrinho</Button>
       </CardFooter>
     </Card>
   );
