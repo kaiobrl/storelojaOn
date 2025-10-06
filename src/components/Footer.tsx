@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Github, Twitter, Facebook, MessageSquare } from "lucide-react";
+import { Github, Twitter, Facebook } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -31,10 +31,9 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-foreground">Siga-nos</h4>
             <div className="flex mt-4 space-x-4">
-              <a href="#" aria-label="WhatsApp" className="hover:text-primary"><MessageSquare size={20} /></a>
-              <a href="#" aria-label="Github" className="hover:text-primary"><Github size={20} /></a>
-              <a href="#" aria-label="Twitter" className="hover:text-primary"><Twitter size={20} /></a>
-              <a href="#" aria-label="Facebook" className="hover:text-primary"><Facebook size={20} /></a>
+              <a href="#" className="hover:text-primary"><Github size={20} /></a>
+              <a href="#" className="hover:text-primary"><Twitter size={20} /></a>
+              <a href="#" className="hover:text-primary"><Facebook size={20} /></a>
             </div>
           </div>
         </div>
