@@ -3,6 +3,7 @@ export interface Product {
   name: string;
   category: string;
   price: number;
+  originalPrice?: number;
   imageUrl: string;
   rating: number;
   reviews: number;
@@ -13,7 +14,8 @@ export const products: Product[] = [
     id: 1,
     name: "Smartphone Moderno",
     category: "Eletrônicos",
-    price: 2999.90,
+    price: 2499.90,
+    originalPrice: 2999.90,
     imageUrl: "/placeholder.svg",
     rating: 4.5,
     reviews: 120,
@@ -31,7 +33,8 @@ export const products: Product[] = [
     id: 3,
     name: "Tênis de Corrida",
     category: "Vestuário",
-    price: 349.99,
+    price: 299.99,
+    originalPrice: 349.99,
     imageUrl: "/placeholder.svg",
     rating: 4.2,
     reviews: 250,
@@ -49,7 +52,8 @@ export const products: Product[] = [
     id: 5,
     name: "Fone de Ouvido Bluetooth",
     category: "Eletrônicos",
-    price: 199.50,
+    price: 159.50,
+    originalPrice: 199.50,
     imageUrl: "/placeholder.svg",
     rating: 4.4,
     reviews: 310,
@@ -76,7 +80,8 @@ export const products: Product[] = [
     id: 8,
     name: "Livro de Ficção",
     category: "Livros",
-    price: 45.00,
+    price: 35.00,
+    originalPrice: 45.00,
     imageUrl: "/placeholder.svg",
     rating: 4.3,
     reviews: 95,

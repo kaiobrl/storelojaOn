@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Star } from "lucide-react";
 import type { Product } from "@/data/products";
 import { useCart } from "../contexts/CartContext";
@@ -24,6 +25,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
     <>
       <Card className="w-full flex flex-col">
         <CardHeader className="p-0 relative">
+          {product.originalPrice && (
+            <Badge variant="destructive" className="absolute top-2 left-2 z-10">
+              Oferta
+            </Badge>
+          )}
           <button onClick={() => setIsModalOpen(true)} className="w-full block cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary rounded-t-lg">
             <img src={product.imageUrl} alt={product.name} className="rounded-t-lg object-cover aspect-square" />
           </button>
@@ -39,9 +45,16 @@ const ProductCard = ({ product }: ProductCardProps) => {
             </div>
             <span className="text-xs text-muted-foreground ml-2">({product.reviews})</span>
           </div>
-          <p className="text-xl font-bold mt-2">
-            {product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-          </p>
+          <div className="flex items-baseline gap-2 mt-2">
+            <p className="text-xl font-bold text-primary">
+              {product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+            </p>
+            {product.originalPrice && (
+              <p className="text-sm text-muted-foreground line-through">
+                {product.originalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+              </p>
+            )}
+          </div>
         </CardContent>
         <CardFooter className="p-4 pt-0">
           <Button className="w-full" onClick={handleAddToCart}>Adicionar ao Carrinho</Button>
