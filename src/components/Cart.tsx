@@ -4,7 +4,6 @@ import {
   SheetHeader,
   SheetTitle,
   SheetFooter,
-  SheetClose,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useCart } from "../contexts/CartContext";
@@ -46,6 +45,21 @@ const CartItemRow = ({ item }: { item: CartItem }) => {
 export const Cart = () => {
   const { isCartOpen, closeCart, cartItems, totalPrice, cartCount } = useCart();
 
+  const handleCheckout = () => {
+    // IMPORTANTE: Substitua este número pelo WhatsApp da sua loja
+    const phoneNumber = "5511999999999"; 
+
+    const messageItems = cartItems.map(item => 
+      `• ${item.quantity}x ${item.name} - ${item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`
+    ).join('\n');
+
+    const finalMessage = `Olá! Gostaria de finalizar meu pedido:\n\n${messageItems}\n\n*Total: ${totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}*`;
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(finalMessage)}`;
+
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <Sheet open={isCartOpen} onOpenChange={closeCart}>
       <SheetContent className="flex w-full flex-col pr-0 sm:max-w-lg">
@@ -67,9 +81,7 @@ export const Cart = () => {
                   <span>Subtotal</span>
                   <span>{totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
                 </div>
-                <SheetClose asChild>
-                  <Button className="w-full">Finalizar Compra</Button>
-                </SheetClose>
+                <Button className="w-full" onClick={handleCheckout}>Finalizar Compra</Button>
               </div>
             </SheetFooter>
           </>
