@@ -1,39 +1,48 @@
 import { Link } from "react-router-dom";
+import { Github, Twitter, Facebook } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-muted/50 border-t">
-      <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <footer className="bg-muted text-muted-foreground">
+      <div className="container py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-lg font-semibold">formato livre</h3>
+            <h3 className="text-lg font-semibold">Store</h3>
             <p className="text-muted-foreground mt-2 text-sm">Sua loja online para tudo.</p>
           </div>
           <div>
-            <h4 className="font-semibold">Comprar</h4>
-            <ul className="mt-2 space-y-1">
-              <li><Link to="/products" className="text-sm text-muted-foreground hover:text-foreground">Todos os Produtos</Link></li>
-              <li><Link to="/categories" className="text-sm text-muted-foreground hover:text-foreground">Categorias</Link></li>
-              <li><Link to="/deals" className="text-sm text-muted-foreground hover:text-foreground">Ofertas</Link></li>
+            <h4 className="font-semibold text-foreground">Links Rápidos</h4>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><Link to="/about" className="hover:text-primary">Sobre Nós</Link></li>
+              <li><Link to="/contact" className="hover:text-primary">Contato</Link></li>
+              <li><Link to="/faq" className="hover:text-primary">FAQ</Link></li>
+              <li><Link to="/shipping" className="hover:text-primary">Envio e Devoluções</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold">Sobre</h4>
-            <ul className="mt-2 space-y-1">
-              <li><Link to="/about" className="text-sm text-muted-foreground hover:text-foreground">Sobre Nós</Link></li>
-              <li><Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground">Contato</Link></li>
+            <h4 className="font-semibold text-foreground">Categorias</h4>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><Link to="/categories/electronics" className="hover:text-primary">Eletrônicos</Link></li>
+              <li><Link to="/categories/clothing" className="hover:text-primary">Vestuário</Link></li>
+              <li><Link to="/categories/home" className="hover:text-primary">Casa</Link></li>
+              <li><Link to="/categories/books" className="hover:text-primary">Livros</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold">Suporte</h4>
-            <ul className="mt-2 space-y-1">
-              <li><Link to="/faq" className="text-sm text-muted-foreground hover:text-foreground">FAQ</Link></li>
-              <li><Link to="/shipping" className="text-sm text-muted-foreground hover:text-foreground">Envio e Devoluções</Link></li>
-            </ul>
+            <h4 className="font-semibold text-foreground">Siga-nos</h4>
+            <div className="flex mt-4 space-x-4">
+              <a href="#" className="hover:text-primary"><Github size={20} /></a>
+              <a href="#" className="hover:text-primary"><Twitter size={20} /></a>
+              <a href="#" className="hover:text-primary"><Facebook size={20} /></a>
+            </div>
           </div>
         </div>
-        <div className="mt-8 border-t pt-4 text-center text-muted-foreground text-sm">
-          <p>&copy; {new Date().getFullYear()} formato livre. Todos os direitos reservados.</p>
+        <div className="mt-8 border-t pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+          <p>&copy; {new Date().getFullYear()} Store. Todos os direitos reservados.</p>
+          <div className="flex space-x-4 mt-4 md:mt-0">
+            <Link to="/privacy" className="hover:text-primary">Política de Privacidade</Link>
+            <Link to="/terms" className="hover:text-primary">Termos de Serviço</Link>
+          </div>
         </div>
       </div>
     </footer>
