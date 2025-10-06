@@ -23,15 +23,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <img src={product.imageUrl} alt={product.name} className="rounded-t-lg object-cover aspect-square" />
       </CardHeader>
       <CardContent className="p-4 flex-grow">
-        <p className="text-sm text-muted-foreground">{product.category}</p>
+        <p className="text-sm text-gray-500">{product.category}</p>
         <CardTitle className="text-base font-semibold mt-1 h-12">{product.name}</CardTitle>
         <div className="flex items-center mt-2">
           <div className="flex items-center">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className={`h-4 w-4 ${i < Math.round(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground'}`} />
+              <Star key={i} className={`h-4 w-4 ${i < Math.round(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} />
             ))}
           </div>
-          <span className="text-xs text-muted-foreground ml-2">({product.reviews})</span>
+          <span className="text-xs text-gray-500 ml-2">({product.reviews})</span>
         </div>
         <p className="text-xl font-bold mt-2">
           {product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
