@@ -6,6 +6,7 @@ import CategoryProductsPage from "./pages/CategoryProductsPage";
 import DealsPage from "./pages/DealsPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import NotFound from "./pages/NotFound";
 import { CartProvider } from "./contexts/CartContext";
 import { Toaster as SonnerToaster } from "@/components/ui/sonner";
 import Layout from "./components/Layout";
@@ -15,7 +16,7 @@ function App() {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <CartProvider>
-        <BrowserRouter future={{ v7_startTransition: true }}>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <Layout>
             <Routes>
               <Route path="/" element={<Index />} />
@@ -25,6 +26,7 @@ function App() {
               <Route path="/deals" element={<DealsPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
         </BrowserRouter>
