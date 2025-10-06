@@ -46,8 +46,7 @@ export const Cart = () => {
   const { isCartOpen, closeCart, cartItems, totalPrice, cartCount } = useCart();
 
   const handleCheckout = () => {
-    // IMPORTANTE: Substitua este número pelo WhatsApp da sua loja
-    const phoneNumber = "5511999999999"; 
+    const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "5511999999999"; 
 
     const messageItems = cartItems.map(item => 
       `• ${item.quantity}x ${item.name} - ${item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`
