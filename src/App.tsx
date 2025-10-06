@@ -20,11 +20,11 @@ const AppLayout = () => (
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-      <BrowserRouter>
-        <CartProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
+      <CartProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
             <Routes>
               <Route element={<AppLayout />}>
                 <Route path="/" element={<Index />} />
@@ -35,9 +35,9 @@ const App = () => (
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </TooltipProvider>
-        </CartProvider>
-      </BrowserRouter>
+          </BrowserRouter>
+        </TooltipProvider>
+      </CartProvider>
     </ThemeProvider>
   </QueryClientProvider>
 );
