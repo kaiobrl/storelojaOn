@@ -2,12 +2,11 @@ import { Link, useLocation } from "react-router-dom";
 import { ShoppingCart, Menu, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useCart } from "@/hooks/useCart";
-import Cart from "./Cart";
-import { useTheme } from "./ThemeProvider";
+import { useCart } from "@/contexts/CartContext";
+import { useTheme } from "next-themes";
 
 const Header = () => {
-  const { cart } = useCart();
+  const { cartCount, openCart } = useCart();
   const location = useLocation();
   const { theme, setTheme } = useTheme();
 
@@ -52,21 +51,16 @@ const Header = () => {
             <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             <span className="sr-only">Toggle theme</span>
           </Button>
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="relative">
-                <ShoppingCart className="h-5 w-5" />
-                {cart.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full h-5 w-5 text-xs flex items-center justify-center">
-                    {cart.length}
-                  </span>
-                )}
-              </Button>
-            </SheetTrigger>
-            <SheetContent>
-              <Cart />
-            </SheetContent>
-          </Sheet>
+          
+          <Button variant="outline" size="icon" className="relative" onClick={openCart}>
+            <ShoppingCart className="h-5 w-5" />
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full h-5 w-5 text-xs flex items-center justify-center">
+                {cartCount}
+              </span>
+            )}
+          </Button>
+
           <Sheet>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="outline" size="icon">
