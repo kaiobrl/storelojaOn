@@ -19,15 +19,15 @@ const Header = () => {
             </Link>
           </div>
           <nav className="hidden md:flex items-center space-x-6">
-            <Link to="/" className="text-sm font-medium text-gray-600 hover:text-gray-900">Home</Link>
-            <Link to="/products" className="text-sm font-medium text-gray-600 hover:text-gray-900">Produtos</Link>
-            <Link to="/categories" className="text-sm font-medium text-gray-600 hover:text-gray-900">Categorias</Link>
-            <Link to="/deals" className="text-sm font-medium text-gray-600 hover:text-gray-900">Ofertas</Link>
+            <Link to="/" className="text-sm font-medium text-muted-foreground hover:text-foreground">Home</Link>
+            <Link to="/products" className="text-sm font-medium text-muted-foreground hover:text-foreground">Produtos</Link>
+            <Link to="/categories" className="text-sm font-medium text-muted-foreground hover:text-foreground">Categorias</Link>
+            <Link to="/deals" className="text-sm font-medium text-muted-foreground hover:text-foreground">Ofertas</Link>
           </nav>
           <div className="flex items-center space-x-2 sm:space-x-4">
             <div className="relative hidden sm:block">
               <Input type="search" placeholder="Buscar..." className="pl-10 h-9" />
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             </div>
             <ThemeToggle />
             <div className="relative">
