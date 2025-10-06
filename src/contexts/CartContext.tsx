@@ -8,7 +8,13 @@ export interface CartItem extends Product {
 interface CartContextType {
   cartItems: CartItem[];
   addToCart: (product: Product) => void;
+  removeFromCart: (productId: number) => void;
+  decreaseQuantity: (productId: number) => void;
   cartCount: number;
+  totalPrice: number;
+  isCartOpen: boolean;
+  openCart: () => void;
+  closeCart: () => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -23,10 +29,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       return [];
     }
   });
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
   }, [cartItems]);
+
+  const openCart = () => setIsCartOpen(true);
+  const closeCart = () => setIsCartOpen(false);
 
   const addToCart = (product: Product) => {
     setCartItems(prevItems => {
@@ -41,10 +51,28 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
+  const decreaseQuantity = (productId: number) => {
+    setCartItems(prevItems => {
+      const itemInCart = prevItems.find(item => item.id === productId);
+      if (itemInCart && itemInCart.quantity > 1) {
+        return prevItems.map(item =>
+          item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
+        );
+      } else {
+        return prevItems.filter(item => item.id !== productId);
+      }
+    });
+  };
+
+  const removeFromCart = (productId: number) => {
+    setCartItems(prevItems => prevItems.filter(item => item.id !== productId));
+  };
+
   const cartCount = cartItems.reduce((count, item) => count + item.quantity, 0);
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, cartCount }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, decreaseQuantity, cartCount, totalPrice, isCartOpen, openCart, closeCart }}>
       {children}
     </CartContext.Provider>
   );

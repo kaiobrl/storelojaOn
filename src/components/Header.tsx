@@ -7,7 +7,7 @@ import { useCart } from "@/contexts/CartContext";
 import { Badge } from "@/components/ui/badge";
 
 const Header = () => {
-  const { cartCount } = useCart();
+  const { cartCount, openCart } = useCart();
 
   return (
     <header className="border-b sticky top-0 bg-background z-10">
@@ -31,7 +31,7 @@ const Header = () => {
             </div>
             <ThemeToggle />
             <div className="relative">
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" onClick={openCart}>
                 <ShoppingCart className="h-5 w-5" />
                 <span className="sr-only">Carrinho</span>
               </Button>
