@@ -31,7 +31,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-foreground">Siga-nos</h4>
             <div className="flex mt-4 space-x-4">
-              <a href="https://wa.me/83981374944" target="_blank" rel="noopener noreferrer" className="hover:text-primary"><MessageCircleMore size={20} /></a>
+              <a href="https://wa.me/5583981374944" target="_blank" rel="noopener noreferrer" className="hover:text-primary"><MessageCircleMore size={20} /></a>
               <a href="https://instagram.com/formato_livre/" target="_blank" rel="noopener noreferrer" className="hover:text-primary"><Instagram size={20} /></a>
               <a href="https://t.me/formatolivre0" target="_blank" rel="noopener noreferrer" className="hover:text-primary"><Send size={20} /></a>
             </div>
